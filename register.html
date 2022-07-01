@@ -44,7 +44,7 @@
           <div class="col-12 justify-content-center">
           <div id="regBox">
             <div id="registerForm">
-              <div id="homepageForm">
+              <form method="post" action="PHP/register.php">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
                   <input
@@ -52,6 +52,7 @@
                     class="form-control inputfield"
                     aria-describedby="emailHelp"
                     id="reg_name_form"
+                    name="name"
                   />
                 </div>
                 <br />
@@ -61,6 +62,7 @@
                     type="email"
                     class="form-control inputfield"
                     id="reg_email_form"
+                    name="email"
                   />
                 </div>
                 <br />
@@ -70,6 +72,7 @@
                     type="password"
                     class="form-control inputfield"
                     id="reg_password_form"
+                    name="passwd"
                   />
                 </div>
 
@@ -79,6 +82,7 @@
                     type="password"
                     class="form-control inputfield"
                     id="reg_confPassword_form" 
+                    name="passwd_conf"
                   />
 
                   <input type="checkbox" id="password_checkbox">
@@ -87,18 +91,19 @@
                 <br />
   
                 <button
+                name="Submit"
                   type="submit"
                   class="btn btn-dark"
                   onClick="registry_verification()" >
                   Register
                 </button>
-                
+              </form>
                </div>
-              </div>
           </div>
         </div>
       </div>
       </div>
+
       <script
         src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
