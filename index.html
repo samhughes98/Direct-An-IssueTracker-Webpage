@@ -20,7 +20,7 @@
         <div id="nav__div">
           <div class="col-1">
             <a href="index.html">
-            <img id="bug__logo" src="/static/images/bug_icon.png" />
+            <img id="bug__logo" src="static/images/bug_icon.png" />
             </a>
           </div>
           <div class="col-7">
@@ -46,6 +46,7 @@
           <span id="title__text">
             <h1 id="title__h1">Placeholder</h1>
           </span>
+          <form method="post" action="PHP/login.php">
           <div id="login__form">
             <div id="homepageForm">
               <div class="form-group">
@@ -55,6 +56,7 @@
                   class="form-control inputfield"
                   aria-describedby="emailHelp"
                   id="email_form"
+                  name="email_login"
                 />
               </div>
               <br />
@@ -64,20 +66,24 @@
                   type="password"
                   class="form-control inputfield"
                   id="password_form"
+                  name="password_login"
                 />
               </div>
               <br />
 
               <button
+              name="Submit_Login"
                 type="submit"
                 class="btn btn-dark"
                 onClick="form_verification()"
                 id="regBtn" >
                 Log In
               </button>
+              </form>
               
               <a href="register.html">
                 <button
+                name="register"
                 type="submit"
                 class="btn btn-dark"
                 style="float:right;">
