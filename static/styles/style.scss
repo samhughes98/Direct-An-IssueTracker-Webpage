@@ -1,0 +1,103 @@
+$navColor: #303030;
+$bodyColor: #212121;
+
+body{
+    background: $bodyColor !important;
+}
+
+*{
+    font-size: 1em;
+    color:white !important;
+}
+
+ul, li {
+    display:inline;
+    list-style-type: none;
+    text-decoration: none;
+
+}
+
+#nav__div{
+    height:8vh;
+    width:100vw;
+    background-color: $navColor;
+    display:flex;
+
+   div{
+    margin-top:2.4vh;
+    ul{
+        li{
+            a{
+                padding-right:1vw;
+            }
+        }
+    }
+   }
+}
+
+
+#bug__logo{
+  margin-left:2.5vw;
+}
+
+#title__text {
+    text-align:center;
+    display:block;
+    margin-top:15vh;
+    margin-left:auto;
+    margin-right:auto;
+    width:30vw;
+}
+
+#login__form{
+    margin-top:7vh;
+    margin-left:auto;
+    margin-right:auto;
+    width:30vw;
+    font-size: 1.2em;
+}
+
+#regBox{
+    margin-top:10vh;
+    margin-left: auto;
+    margin-right:auto;
+    width:65vw;
+    height:80vh;
+    border-radius: 6px;
+    background-color: $navColor;
+}
+
+#registerForm {
+    padding-top:10vh;
+    padding-left:15vw;
+    width:50vw;
+
+    button{
+        margin-left:14vw;
+        margin-top:3vh;
+    }
+    input{
+        color:black !important;
+    }
+}
+
+#password_confirm_form {
+    margin-top:10vh;
+}
+
+#password_checkbox{
+    margin-top:2vh;
+}
+
+
+@media screen and (min-width: 1200px){
+
+    #registerForm{
+        padding-left:25vw;
+        width:42vw;
+
+        button{
+            margin-left:6vw;
+        }
+    }
+}
