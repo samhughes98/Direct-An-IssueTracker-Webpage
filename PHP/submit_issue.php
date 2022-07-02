@@ -22,7 +22,7 @@
             <div class="row">
               <div id="nav__div">
                 <div class="col-1">
-                    <a href="index.html">
+                    <a href="../index.html">
                         <img id="bug__logo" src="../static/images/bug_icon.png">
                       </a>
                 </div>
@@ -50,39 +50,36 @@
                 <div class="col-10" id="dash_title">
                     <div style="text-align:center;margin-top:5vh;">
                         <h1 id="title_text">
-                          <a href="submit_issue.php">Dashboard</a>
+                          <a href="submit_issue.php">Submit Issue</a>
                         </h1>
                     </div>
                     <div id="dash_Box">
                       <p style="text-align:center"></p>
+                      <div id="form_div">
+                      <form id="post_form">
+                        <label for="poster">Name:</label>
+                        <input name="poster" type="name">
 
-                      <?php
-                      $con=mysqli_connect("root","localhost","","issuesDB");
-                      // Check connection
-                      if (mysqli_connect_errno())
-                      {
-                      echo "Failed to connect to MySQL: " . mysqli_connect_error();
-                      }
+                        <label for="Title">Issue Title:</label>
+                        <input name="Title" type="name">
 
-                      $result = mysqli_query($con,"SELECT * FROM issue_records");
+                        <label for="priority">Priority:</label>
+                        <input list="priority" name="priority" id="dropdown">
+                        <datalist id="priority">
+                            <option value="Low">
+                            <option value="Medium">
+                            <option value="High">
+                            <option value="Urgent">
+                        </datalist>
 
-                      echo "<table border='1'>
-                      <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      </tr>";
+                        <label for="Description" >Description:</label>
+                        <textarea name="Description" type="textarea" id="description_area">
+                        </textarea>
 
-                      while($row = mysqli_fetch_array($result))
-                      {
-                      echo "<tr>";
-                      echo "<td>" . $row['FirstName'] . "</td>";
-                      echo "<td>" . $row['LastName'] . "</td>";
-                      echo "</tr>";
-                      }
-                      echo "</table>";
-
-                      mysqli_close($con);
-                      ?>
+                        <button id="issueBtn" class="btn btn-dark">Submit Issue</button>
+                        
+                      </form>
+</div>
                     </div>
                 </div>
                 <div class="col-1"></div>

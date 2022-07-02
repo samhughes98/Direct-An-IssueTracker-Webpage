@@ -10,7 +10,7 @@ $username = "root";
 $password = "";
 $dbname = "userdetails";
 
-$Email_login = '';
+$Fname = [];
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if (mysqli_connect_errno()) { printf("Connect failed: %s\n", mysqli_connect_error());  exit(); }
@@ -19,7 +19,11 @@ if(isset($_POST['Submit_Login'])){
 $Email_login = $_POST['email_login'];
 $password_login = $_POST['password_login'];
 
-    $sql = "SELECT * FROM `reg_details` WHERE Email='$Email_login' AND Passwd='$password_login' ";
+    $sql = "SELECT * FROM `reg_details` WHERE Email = '$Email_login' AND Passwd = '$password_login' ";
+    $sql2 = "SELECT Fname FROM `reg_Details` WHERE Email = '$Email_login'";
+    $res2 = mysqli_query($conn, $sql2);
+    array_push($Fname, $res2);
+
     $result = mysqli_query($conn, $sql);
     $rows = mysqli_num_rows($result);
     if ($rows == 1) {

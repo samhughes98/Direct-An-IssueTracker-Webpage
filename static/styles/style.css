@@ -94,6 +94,32 @@ ul, li {
   font-size: 3em;
 }
 
+#form_div {
+  display: flex;
+  width: 50vw;
+  height: 50vh;
+}
+#form_div label {
+  margin-left: 25vw;
+  margin-top: 5vh;
+}
+#form_div input, #form_div textarea {
+  margin-left: 25vw;
+  display: block;
+  width: 30vw;
+  color: black !important;
+}
+#form_div #dropdown {
+  width: 10vw !important;
+}
+#form_div #description_area {
+  height: 40vh;
+}
+#form_div #issueBtn {
+  margin-left: 37vw;
+  margin-top: 5vh;
+}
+
 @media screen and (min-width: 1200px) {
   #registerForm {
     padding-left: 25vw;

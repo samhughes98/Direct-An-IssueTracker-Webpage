@@ -107,6 +107,36 @@ ul, li {
     }
 }
 
+#form_div {
+    display:flex;
+    width:50vw;
+    height:50vh;
+
+    label{
+        margin-left:25vw;
+        margin-top:5vh;
+    }
+    input, textarea{
+        margin-left:25vw;
+        display:block;
+        width:30vw;
+        color:black !important;
+    }
+
+    #dropdown{
+        width:10vw !important;
+    }
+
+    #description_area{
+        height:40vh;
+    }
+
+    #issueBtn{
+     margin-left:37vw;
+     margin-top:5vh;
+    }
+}
+
 
 @media screen and (min-width: 1200px){
 
