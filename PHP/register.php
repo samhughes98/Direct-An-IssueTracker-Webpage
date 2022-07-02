@@ -20,9 +20,11 @@ $passwd = $_POST['passwd'];
 $ID_rand = rand(1000,9999);
 
 
-  $sql = "INSERT INTO `reg_details`(`ID`, `Fname`, `Email`, `Password`) VALUES ('$ID_rand', '$Fname','$Email','$passwd')";
+  $sql = "INSERT INTO `reg_details`(`ID`, `Fname`, `Email`, `Passwd`) VALUES ('$ID_rand', '$Fname','$Email','$passwd')";
   if ($conn->query($sql) === TRUE) {    } else {echo "Error: " . $sql . "<br>" . $conn->error;}
 
   $conn->close();
 }
+
+header("location: ../index.html");
 ?>

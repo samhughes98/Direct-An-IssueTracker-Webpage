@@ -13,18 +13,26 @@ class Form_Verification {
   }
 
   verification() {
+    var flag = false;
+
     if (this.email === "") {
       alert("please enter an email address");
+      flag = true;
+      return false;
     }
 
     if (this.password === "") {
       alert("please enter a password");
-    } else {
+      flag = true;
+      return false;
+    } 
+
+    if(flag === false){
       var form = document.getElementById("homepageForm");
       form.action = "register.html";   
       return false;
     }
-  }
+    }
 }
 
 class reg_verification extends Form_Verification {
@@ -85,6 +93,7 @@ var pwdCheckBox = document.getElementById("password_checkbox");
 var pwd = document.getElementById("reg_password_form");
 var conf_pwd = document.getElementById("reg_confPassword_form");
 
+if(document.body.contains(pwdCheckBox)){
 pwdCheckBox.addEventListener("change", function () {
   if (this.checked) {
     conf_pwd.type = "name";
@@ -94,3 +103,4 @@ pwdCheckBox.addEventListener("change", function () {
     pwd.type = "password";
   }
 });
+}

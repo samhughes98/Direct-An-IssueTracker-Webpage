@@ -91,6 +91,22 @@ ul, li {
     margin-top:2vh;
 }
 
+#dash-title{
+    width:100vw;
+    justify-content: center;
+}
+
+#dash_Box{
+    background-color: $navColor !important;
+    height:100vh !important;
+    width:100% !important;
+    margin-top:3vh;
+
+    p{
+        font-size: 3em;;
+    }
+}
+
 
 @media screen and (min-width: 1200px){
 
