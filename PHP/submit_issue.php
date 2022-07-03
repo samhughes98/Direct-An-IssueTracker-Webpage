@@ -15,31 +15,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
 <body>
-<?php
-      define( 'RESTRICTED', true );
-      include('login.php');
-      session_start();
+  <?php
+  define('RESTRICTED', true);
+  include('login.php');
+  session_start();
 
-      if($_SESSION['timeout'] + 10 * 60 < time()){
-        echo 
-        "<script type='javascript'>
+  if ($_SESSION['timeout'] + 10 * 60 < time()) {
+    echo
+    "<script type='javascript'>
           alert('Login session timed out!');    
         </script>";
-      }
-
-      if ( defined( 'RESTRICTED' ) ) {
-          if ( !isset( $_SESSION['Login_ID']) && !isset($_SESSION['Admin_ID']) ) {
-            echo "<h1>You are not logged in</h1>";
-            exit();
-          }
-      }
-      else {
-          if ( isset( $_SESSION['Login_ID']) || isset($_SESSION['Admin_ID'])  ) {
-            exit();
-          }        
   }
 
-?>
+  if (defined('RESTRICTED')) {
+    if (!isset($_SESSION['Login_ID']) && !isset($_SESSION['Admin_ID'])) {
+      echo "<h1>You are not logged in</h1>";
+      exit();
+    }
+  } else {
+    if (isset($_SESSION['Login_ID']) || isset($_SESSION['Admin_ID'])) {
+      exit();
+    }
+  }
+
+  ?>
   <div class="container-fluid">
     <div class="row">
       <div id="nav__div">
@@ -83,11 +82,11 @@
               <form id="post_form" method="post">
                 <div class="form-group">
                   <label for="poster">Name:</label>
-                  <input name="poster" class="form-control" type="name" maxlength="20">
+                  <input name="poster" class="form-control" type="name" maxlength="20" id="posterName">
                 </div>
                 <div class="form-group">
                   <label for="title">Issue Title:</label>
-                  <input name="title" class="form-control" type="name" maxlength="30">
+                  <input name="title" class="form-control" type="name" maxlength="30" id="titleName">
                 </div>
 
                 <div class="form-group">
@@ -104,13 +103,12 @@
                   <label for="Description">Description:</label>
                   <textarea name="Description" class="form-control" type="textarea" id="description_area" maxlength="300"></textarea>
                 </div>
-                <button id="issueBtn" type="Submit" name="Submit_issue" class="btn btn-dark">Submit Issue</button>
+                <button id="issueBtn" type="Submit" name="Submit_issue" class="btn btn-dark" onClick="Issue_form()">Submit Issue</button>
               </form>
               <div id="txtareaCounter" style="position:absolute;margin-left:50vw;margin-top:81vh;">/300</div>
 
 
               <?php
-
               $servername = "localhost";
               $username = "root";
               $password = "";
@@ -123,6 +121,11 @@
                 $title = $_POST['title'];
                 $Description = $_POST['Description'];
                 $priority = $_POST['priority_selected'];
+
+                if(empty($postName) || empty($title) || empty($Description) || $priority === "Select Priority Level"){
+                  exit();
+                }
+      
 
 
                 $sql = "INSERT INTO `issue_records`(`poster`, `title`, `issue_desc`, `Priority`) VALUES ('$postName', '$title','$Description','$priority')";
