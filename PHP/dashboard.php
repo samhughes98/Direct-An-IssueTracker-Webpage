@@ -21,12 +21,13 @@
   define('RESTRICTED', true);
   include('login.php');
   session_start();
+  $test_name = $_SESSION['Fnames'];
 
-  if ($_SESSION['timeout'] + 10 * 60 < time()) {
-    echo
-    "<script type='javascript'>
-          alert('Login session timed out!');    
-        </script>";
+  $now = time(); // Checking the time now when home page starts.
+
+  if ($now > $_SESSION['expire']) {
+    session_destroy();
+    header("location: ../index.php");
   }
 
   if (defined('RESTRICTED')) {
@@ -46,7 +47,7 @@
     <div class="row">
       <div id="nav__div">
         <div class="col-1">
-          <a href="../index.php">
+          <a href="dashboard.php">
             <img id="bug__logo" src="../static/images/bug_icon.png">
           </a>
         </div>
@@ -65,6 +66,14 @@
             </li>
             <li>
               <a href="contact_page.html">Contact</a>
+            </li>
+            <li>
+              <a href="account.php" id="accountLink">
+                <?php
+                include("login.php");
+                echo "$test_name" . "'s Account";
+                ?>
+              </a>
             </li>
           </ul>
         </div>
@@ -170,6 +179,11 @@
       $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
       });
+    </script>
+    <script type="text/javascript">
+      setTimeout(function() {
+        location = '../index.php';
+      }, 60000 * 10)
     </script>
 
 

@@ -20,11 +20,11 @@
   include('login.php');
   session_start();
 
-  if ($_SESSION['timeout'] + 10 * 60 < time()) {
-    echo
-    "<script type='javascript'>
-          alert('Login session timed out!');    
-        </script>";
+  $now = time(); // Checking the time now when home page starts.
+
+  if ($now > $_SESSION['expire']) {
+      session_destroy();
+      header("location: ../index.php");
   }
 
   if (defined('RESTRICTED')) {
@@ -43,7 +43,7 @@
     <div class="row">
       <div id="nav__div">
         <div class="col-1">
-          <a href="../index.php">
+          <a href="dashboard.php">
             <img id="bug__logo" src="../static/images/bug_icon.png">
           </a>
         </div>
@@ -55,13 +55,13 @@
         <div class="col-4" style="text-align:right">
           <ul>
             <li>
-              <a href="documentation.html">Documentation</a>
+              <a href="../static/pages/documentation.html">Documentation</a>
             </li>
             <li>
-              <a href="help_page.html">Help</a>
+              <a href="../static/pages/help.html">Help</a>
             </li>
             <li>
-              <a href="contact_page.html">Contact</a>
+              <a href="../static/pages/contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -149,6 +149,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="../static/scripts/issue_page.js"></script>
     <script src="../static/scripts/form_verification.js">
+    </script>
+
+<script type="text/javascript">
+      setTimeout(function() {
+        location = '../index.php';
+      }, 60000 * 10)
     </script>
 
 

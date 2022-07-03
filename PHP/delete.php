@@ -15,8 +15,9 @@ if (mysqli_connect_errno()) { printf("Connect failed: %s\n", mysqli_connect_erro
 
 if (isset($_POST['requestDelete'])){
 $Id_delete = $_POST($row['ID']);
+$desc_delete = $_POST($row['issue_desc']);
 
-$sql = "INSERT INTO `todo`(`ID`) VALUES ('$ID_delete')";
+$sql = "INSERT INTO `todo`(`ID`, `Comment`) VALUES ('$ID_delete', '$desc_delete')";
 if ($conn->query($sql) === TRUE) {    } else {echo "Error: " . $sql . "<br>" . $conn->error;}
 
 }

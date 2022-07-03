@@ -37,13 +37,13 @@
         <div class="col-4" style="text-align:right">
           <ul>
             <li>
-              <a href="documentation.html">Documentation</a>
+              <a href="static/pages/documentation.html">Documentation</a>
             </li>
             <li>
-              <a href="help_page.html">Help</a>
+              <a href="static/pages/help.html">Help</a>
             </li>
             <li>
-              <a href="contact_page.html">Contact</a>
+              <a href="static/pages/contact.html">Contact</a>
             </li>
           </ul>
         </div>

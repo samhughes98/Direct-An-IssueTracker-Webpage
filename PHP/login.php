@@ -10,8 +10,6 @@ $username = "root";
 $password = "";
 $dbname = "userdetails";
 
-$Fname = [];
-
 $conn = new mysqli($servername, $username, $password, $dbname);
 if (mysqli_connect_errno()) {
   printf("Connect failed: %s\n", mysqli_connect_error());
@@ -34,17 +32,29 @@ if (isset($_POST['Submit_Login'])) {
 
   $res2 = mysqli_query($conn, $sql2);
   $res3 = mysqli_query($conn, $sessions_login);
-  array_push($Fname, $res2);
 
   $resAdmin = mysqli_query($conn, $adminuser);
   $adminrows = mysqli_num_rows($resAdmin);
 
   $result = mysqli_query($conn, $sql);
   $rows = mysqli_num_rows($result);
+
+
+
   if ($rows == 1) {
     session_start();
     $_SESSION['Login_ID'] = $sessions_login;
+    $_SESSION['email_login'] = $Email_login;
+
+    $q = "SELECT Fname FROM `reg_Details` WHERE Email = '$Email_login'";
+    $result1 = $conn->query($q);
+    $row = $result1->fetch_assoc();
+    $p[] = $row["Fname"];
+
+    $_SESSION['Fnames'] = implode(" ", $p);
+
     $_SESSION['timeout'] = time();
+    $_SESSION['expire'] = $_SESSION['timeout'] + (10 * 60);
     echo ("Well done sam");
     header("location: dashboard.php");
     exit();

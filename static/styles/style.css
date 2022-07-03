@@ -1,9 +1,23 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Gotham";
+  src: url("../fonts/GothamBook.ttf");
+}
 body {
   background: #212121 !important;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
 * {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  font-family: "gotham";
   font-size: 1em;
   color: white !important;
 }
