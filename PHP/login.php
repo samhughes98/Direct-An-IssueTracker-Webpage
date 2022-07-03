@@ -19,24 +19,43 @@ if(isset($_POST['Submit_Login'])){
 $Email_login = $_POST['email_login'];
 $password_login = $_POST['password_login'];
 
+$adminuser = "SELECT * FROM `adminlogin` WHERE username = '$Email_login' AND password = '$password_login'";
+$adminsqlEmail = mysqli_query($conn, $adminuser);
+
+
     $sql = "SELECT * FROM `reg_details` WHERE Email = '$Email_login' AND Passwd = '$password_login' ";
     $sql2 = "SELECT Fname FROM `reg_Details` WHERE Email = '$Email_login'";
+
+    $sessions_login = "SELECT ID FROM `reg_Details` WHERE Email = '$Email_login'";
+    $sessions_login_admin = "SELECT ID FROM `adminlogin` WHERE username = '$Email_login'";
+
     $res2 = mysqli_query($conn, $sql2);
+    $res3 = mysqli_query($conn, $sessions_login);
     array_push($Fname, $res2);
+
+    $resAdmin = mysqli_query($conn, $adminuser);
+    $adminrows = mysqli_num_rows($resAdmin);
 
     $result = mysqli_query($conn, $sql);
     $rows = mysqli_num_rows($result);
     if ($rows == 1) {
+      session_start();
+      $_SESSION['Login_ID'] = $sessions_login;
+      $_SESSION['timeout'] = time();
       echo("Well done sam");
       header("location: dashboard.php");
       exit();
+    } 
+    elseif($adminrows == 1){
+      session_start();
+      $_SESSION['Admin_ID'] = $sessions_login_admin;
+      $_SESSION['timeout'] = time();
+        header("location: ../admin.php");
+        exit();
     } else {
       echo "<script language='javascript'>";
       echo 'alert("User Does not Exist");';
-      echo 'window.location.replace("../index.html");';
+      echo 'window.location.replace("../index.php");';
       echo "</script>";
-      
-
     }
 }
-?>

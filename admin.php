@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Bug Tracker - Register</title> 
+<html lang="en">
+  <head>
+    <title>Bug Tracker</title> 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../static/styles/style.css" />
+    <link rel="stylesheet" href="static/styles/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <link
       rel="stylesheet"
@@ -17,10 +13,11 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <body>
-      <?php
+  </head>
+  <body>
+  <?php
       define( 'RESTRICTED', true );
-      include('login.php');
+      include('PHP/login.php');
       session_start();
 
       if($_SESSION['timeout'] + 10 * 60 < time()){
@@ -31,25 +28,24 @@
       }
 
       if ( defined( 'RESTRICTED' ) ) {
-          if ( !isset( $_SESSION['Login_ID'] ) ) {
-            header( 'Location: ../index.php' );
+          if ( !isset( $_SESSION['Admin_ID'] ) ) {
+            echo "<h1>You are not logged in</h1>";
             exit();
           }
       }
       else {
-          if ( isset( $_SESSION['Login_ID'] ) ) {
-            header( 'Location: dashboard.php' );
+          if ( isset( $_SESSION['Admin_ID'] ) ) {
             exit();
           }        
   }
 
 ?>
-        <div class="container-fluid">
+   <div class="container-fluid">
             <div class="row">
               <div id="nav__div">
                 <div class="col-1">
-                    <a href="../index.php">
-                        <img id="bug__logo" src="../static/images/bug_icon.png">
+                    <a href="index.php">
+                        <img id="bug__logo" src="./static/images/bug_icon.png">
                       </a>
                 </div>
                 <div class="col-6">
@@ -76,8 +72,8 @@
                 <div class="col-10" id="dash_title">
                     <div style="text-align:center;margin-top:5vh;">
                         <h1 id="title_text">
-                          <a href="dashboard.php" style="margin-left:5vw;">Dashboard</a>
-                          <a href="submit_issue.php" style="display:inline;float:right;"><button class="btn btn-dark">Submit New Issue</button></a>
+                          <a href="dashboard.php" style="margin-left:5vw;">Admin Dashboard</a>
+                          <a href="PHP/submit_issue.php" style="display:inline;float:right;"><button class="btn btn-dark">Submit New Issue</button></a>
                         </h1>
     
 
@@ -125,21 +121,17 @@
                 </div>
             </div>
             </div>
-
-        <script
-        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"
-      ></script>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"
-      ></script>
-      <script src="../static/scripts/form_verification.js">
-      </script>
-      
-   
-    </body>
-</head>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="static/scripts/form_verification.js">
+    </script>
+  </body>
 </html>

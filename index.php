@@ -15,11 +15,20 @@
     />
   </head>
   <body>
+  <?php
+      define( 'RESTRICTED', true );
+      include('PHP/login.php');
+      session_start();
+
+      if ( isset( $_SESSION['Login_ID'] ) ) {
+        session_destroy();
+      }        
+   ?>
     <div class="container-fluid">
       <div class="row">
         <div id="nav__div">
           <div class="col-1">
-            <a href="index.html">
+            <a href="index.php">
             <img id="bug__logo" src="static/images/bug_icon.png" />
             </a>
           </div>

@@ -106,6 +106,44 @@ ul, li {
     p{
         font-size: 3em;;
     }
+
+    table{
+        width:100%;
+        margin-top:-1.8vh;
+        overflow-y:hide;
+        float:left;
+    
+        th {
+            border: solid 1px black;
+            border-top: none;
+        }
+        
+        th{
+            text-align: center;
+        }
+        
+        tr{
+          height:auto;
+        }
+    
+        #priority{
+          width:7vw; 
+          border-left:none;
+        }
+        
+        #issue_num{
+          width:6vw;
+        }
+                          
+        #poster{
+          width:10vw;
+        }
+
+        #issue_desc_title{
+            border-right:none;
+        }
+    
+    }
 }
 
 #form_div {
@@ -115,7 +153,7 @@ ul, li {
 
     label{
         margin-left:25vw;
-        margin-top:5vh;
+        margin-top:3vh;
     }
     input, textarea{
         margin-left:25vw;
@@ -142,44 +180,14 @@ ul, li {
 
     #issueBtn{
      margin-left:37vw;
-     margin-top:5vh;
+     margin-top:4vh;
     }
 }
 
-table{
-    width:100%;
-    margin-top:-1.8vh;
-    overflow-y:hide;
-    white-space:nowrap;
-    float:left;
-
-    th {
-        border: solid 1px black;
-        border-top: none;
-    }
-    
-    th{
-        text-align: center;
-    }
-    
-    tr{
-      height:auto;
-    }
-
-    #priority{
-      width:7vw; 
-    }
-    
-    #issue_num{
-      width:6vw;
-    }
-                      
-    #poster{
-      width:10vw;
-    }
-
+#txtareaCounter{
+    margin-left:100vw !important;
+    margin-top:50vh !important;
 }
-
 
 @media screen and (min-width: 1200px){
 

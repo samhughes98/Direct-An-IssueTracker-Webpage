@@ -26,5 +26,5 @@ $ID_rand = rand(1000,9999);
   $conn->close();
 }
 
-header("location: ../index.html");
+header("location: ../index.php");
 ?>

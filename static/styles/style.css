@@ -94,6 +94,35 @@ ul, li {
 #dash_Box p {
   font-size: 3em;
 }
+#dash_Box table {
+  width: 100%;
+  margin-top: -1.8vh;
+  overflow-y: hide;
+  float: left;
+}
+#dash_Box table th {
+  border: solid 1px black;
+  border-top: none;
+}
+#dash_Box table th {
+  text-align: center;
+}
+#dash_Box table tr {
+  height: auto;
+}
+#dash_Box table #priority {
+  width: 7vw;
+  border-left: none;
+}
+#dash_Box table #issue_num {
+  width: 6vw;
+}
+#dash_Box table #poster {
+  width: 10vw;
+}
+#dash_Box table #issue_desc_title {
+  border-right: none;
+}
 
 #form_div {
   display: flex;
@@ -102,7 +131,7 @@ ul, li {
 }
 #form_div label {
   margin-left: 25vw;
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 #form_div input, #form_div textarea {
   margin-left: 25vw;
@@ -124,34 +153,7 @@ ul, li {
 }
 #form_div #issueBtn {
   margin-left: 37vw;
-  margin-top: 5vh;
-}
-
-table {
-  width: 100%;
-  margin-top: -1.8vh;
-  overflow-y: hide;
-  white-space: nowrap;
-  float: left;
-}
-table th {
-  border: solid 1px black;
-  border-top: none;
-}
-table th {
-  text-align: center;
-}
-table tr {
-  height: auto;
-}
-table #priority {
-  width: 7vw;
-}
-table #issue_num {
-  width: 6vw;
-}
-table #poster {
-  width: 10vw;
+  margin-top: 4vh;
 }
 
 @media screen and (min-width: 1200px) {
