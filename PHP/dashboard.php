@@ -109,16 +109,16 @@
             while ($row = mysqli_fetch_array($result)) {
               echo "<tr style='vertical-align:top; border-bottom: 1px solid black;'>";
               if ($row['Priority'] == 'Low') {
-                echo "<td style='color: blue !important;text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Priority'] . "</td>";
+                echo "<td sorttable_customkey='1' style='color: blue !important;text-align:center; font-weight:bold; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Priority'] . "</td>";
               }
               if ($row['Priority'] == 'Medium') {
-                echo "<td style='color: yellow !important;text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Priority'] . "</td>";
+                echo "<td sorttable_customkey='2' style='color: yellow !important;text-align:center; font-weight:bold; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Priority'] . "</td>";
               }
               if ($row['Priority'] == 'High') {
-                echo "<td style='color: orange !important;text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Priority'] . "</td>";
+                echo "<td sorttable_customkey='3' style='color: orange !important;text-align:center; font-weight:bold;  padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Priority'] . "</td>";
               }
               if ($row['Priority'] == 'Urgent') {
-                echo "<td style='color: red !important;text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Priority'] . "</td>";
+                echo "<td sorttable_customkey='4' style='color: red !important;text-align:center; font-weight:bold;  padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Priority'] . "</td>";
               }
               echo "<td style='text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['ID'] . "</td>";
               echo "<td style='text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['poster'] . "</td>";
@@ -167,8 +167,8 @@
     <script src="../static/scripts/Issue_page.js"> </script>
 
     <script>
-      $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();   
+      $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip();
       });
     </script>
 
