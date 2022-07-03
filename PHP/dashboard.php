@@ -21,6 +21,7 @@
         <div class="container-fluid">
             <div class="row">
               <div id="nav__div">
+                <a href="submit_issue.php"><button>Hey</button></a>
                 <div class="col-1">
                     <a href="index.html">
                         <img id="bug__logo" src="../static/images/bug_icon.png">
@@ -57,7 +58,7 @@
                       <p style="text-align:center"></p>
 
                       <?php
-                      $con=mysqli_connect("root","localhost","","issuesDB");
+                      $con=mysqli_connect("localhost","root", "","issuesdb");
                       // Check connection
                       if (mysqli_connect_errno())
                       {
@@ -66,17 +67,23 @@
 
                       $result = mysqli_query($con,"SELECT * FROM issue_records");
 
-                      echo "<table border='1'>
+                      echo "<table id='dash_table' border='1'>
                       <tr>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
+                      <th id='priority'>Priority</th>
+                      <th id='issue_num'>Issue No.</th>
+                      <th id='poster'>Submitted By</th>
+                      <th>Title</th>
+                      <th>Issue Desc</th>
                       </tr>";
 
                       while($row = mysqli_fetch_array($result))
                       {
                       echo "<tr>";
-                      echo "<td>" . $row['FirstName'] . "</td>";
-                      echo "<td>" . $row['LastName'] . "</td>";
+                      echo "<td style='text-align:center'>" . $row['Priority'] . "</td>";
+                      echo "<td style='text-align:center'>" . $row['ID'] . "</td>";
+                      echo "<td style='padding-left:1vw;'>" . $row['poster'] . "</td>";
+                      echo "<td style='padding-left:1vw;'>" . $row['Title'] . "</td>";
+                      echo "<td style='padding-left:1vw; vertical-align:top;'>" . $row['issue_desc'] . "</td>";
                       echo "</tr>";
                       }
                       echo "</table>";

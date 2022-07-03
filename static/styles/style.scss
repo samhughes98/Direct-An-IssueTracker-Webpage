@@ -101,6 +101,7 @@ ul, li {
     height:100vh !important;
     width:100% !important;
     margin-top:3vh;
+    overflow:scroll; 
 
     p{
         font-size: 3em;;
@@ -120,11 +121,19 @@ ul, li {
         margin-left:25vw;
         display:block;
         width:30vw;
+        color:#000000 !important;
+    }
+
+    option{
         color:black !important;
     }
 
     #dropdown{
         width:10vw !important;
+    }
+
+    #priority{
+        color:black !important;
     }
 
     #description_area{
@@ -135,6 +144,32 @@ ul, li {
      margin-left:37vw;
      margin-top:5vh;
     }
+}
+
+table{
+    width:100%;
+    margin-top:-1.5vh;
+    
+    th{
+        text-align: center;
+    }
+    
+    tr{
+        height:15vh;
+    }
+
+    #priority{
+      width:3vw; 
+    }
+    
+    #issue_num{
+      width:6vw;
+    }
+                      
+    #poster{
+width:10vw;
+    }
+
 }
 
 

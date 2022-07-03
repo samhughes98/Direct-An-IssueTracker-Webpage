@@ -56,30 +56,53 @@
                     <div id="dash_Box">
                       <p style="text-align:center"></p>
                       <div id="form_div">
-                      <form id="post_form">
+                      <form id="post_form" method="post">
                         <label for="poster">Name:</label>
                         <input name="poster" type="name">
 
-                        <label for="Title">Issue Title:</label>
-                        <input name="Title" type="name">
+                        <label for="title">Issue Title:</label>
+                        <input name="title" type="name">
 
                         <label for="priority">Priority:</label>
-                        <input list="priority" name="priority" id="dropdown">
-                        <datalist id="priority">
-                            <option value="Low">
-                            <option value="Medium">
-                            <option value="High">
-                            <option value="Urgent">
-                        </datalist>
+                        <select id="priority" name="priority_selected" style="color:black;">
+                            <option>Please Select a Value</option> 
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Urgent">Urgent</option>
+                        </select>
 
                         <label for="Description" >Description:</label>
-                        <textarea name="Description" type="textarea" id="description_area">
-                        </textarea>
+                        <textarea name="Description" type="textarea" id="description_area"></textarea>
 
-                        <button id="issueBtn" class="btn btn-dark">Submit Issue</button>
-                        
+                        <button id="issueBtn" type="Submit" name="Submit_issue" class="btn btn-dark">Submit Issue</button>
                       </form>
-</div>
+                     
+
+                      <?php 
+
+                      $servername = "localhost";
+                      $username = "root";
+                      $password = "";
+                      $dbname = "issuesdb";
+                      $ID_rand = rand(1000,9999);
+
+                      $conn = new mysqli($servername, $username, $password, $dbname);
+                      
+                      if(isset($_POST['Submit_issue'])){
+                        $postName = $_POST['poster'];
+                        $title = $_POST['title'];
+                        $Description = $_POST['Description'];
+                        $priority = $_POST['priority_selected'];
+                       
+                        
+                          $sql = "INSERT INTO `issue_records`(`ID`, `poster`, `title`, `issue_desc`, `Priority`) VALUES ('$ID_rand', '$postName', '$title','$Description','$priority')";
+                          if ($conn->query($sql) === TRUE) {    } else {echo "Error: " . $sql . "<br>" . $conn->error;}
+
+                          $conn->close();
+                        }
+                      ?>
+                    </div>
                     </div>
                 </div>
                 <div class="col-1"></div>
@@ -96,6 +119,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"
       ></script>
+      <script src="../static/scripts/issue_page.js"></script>
       <script src="../static/scripts/form_verification.js">
       </script>
       

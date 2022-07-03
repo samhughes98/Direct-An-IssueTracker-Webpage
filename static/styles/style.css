@@ -89,6 +89,7 @@ ul, li {
   height: 100vh !important;
   width: 100% !important;
   margin-top: 3vh;
+  overflow: scroll;
 }
 #dash_Box p {
   font-size: 3em;
@@ -107,10 +108,16 @@ ul, li {
   margin-left: 25vw;
   display: block;
   width: 30vw;
+  color: #000000 !important;
+}
+#form_div option {
   color: black !important;
 }
 #form_div #dropdown {
   width: 10vw !important;
+}
+#form_div #priority {
+  color: black !important;
 }
 #form_div #description_area {
   height: 40vh;
@@ -118,6 +125,26 @@ ul, li {
 #form_div #issueBtn {
   margin-left: 37vw;
   margin-top: 5vh;
+}
+
+table {
+  width: 100%;
+  margin-top: -1.5vh;
+}
+table th {
+  text-align: center;
+}
+table tr {
+  height: 15vh;
+}
+table #priority {
+  width: 3vw;
+}
+table #issue_num {
+  width: 6vw;
+}
+table #poster {
+  width: 10vw;
 }
 
 @media screen and (min-width: 1200px) {
