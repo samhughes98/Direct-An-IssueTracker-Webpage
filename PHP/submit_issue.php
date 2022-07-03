@@ -72,6 +72,7 @@
         <div class="col-1"></div>
         <div class="col-10" id="dash_title">
           <div style="text-align:center;margin-top:5vh;">
+            <a href="dashboard.php"><button class="btn btn-dark" style="float:left;">Dashboard</button></a>
             <h1 id="title_text">
               <a href="submit_issue.php">Submit Issue</a>
             </h1>
@@ -122,10 +123,10 @@
                 $Description = $_POST['Description'];
                 $priority = $_POST['priority_selected'];
 
-                if(empty($postName) || empty($title) || empty($Description) || $priority === "Select Priority Level"){
+                if (empty($postName) || empty($title) || empty($Description) || $priority === "Select Priority Level") {
                   exit();
                 }
-      
+
 
 
                 $sql = "INSERT INTO `issue_records`(`poster`, `title`, `issue_desc`, `Priority`) VALUES ('$postName', '$title','$Description','$priority')";

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background: #212121 !important;
 }
@@ -7,7 +8,8 @@ body {
   color: white !important;
 }
 
-ul, li {
+ul,
+li {
   display: inline;
   list-style-type: none;
   text-decoration: none;
@@ -100,7 +102,7 @@ ul, li {
   float: left;
 }
 #dash_Box table th {
-  line-height: 5vh;
+  line-height: 2vh;
   border: solid 1px black;
   border-top: none;
   text-align: center;
@@ -135,7 +137,8 @@ ul, li {
   margin-left: 25vw;
   margin-top: 3vh;
 }
-#form_div input, #form_div textarea {
+#form_div input,
+#form_div textarea {
   margin-left: 25vw;
   display: block;
   width: 30vw;
@@ -163,6 +166,10 @@ ul, li {
   margin-top: 50vh !important;
 }
 
+#title_text {
+  margin-right: 5vw;
+}
+
 @media screen and (min-width: 1200px) {
   #registerForm {
     padding-left: 25vw;
@@ -171,4 +178,7 @@ ul, li {
   #registerForm button {
     margin-left: 6vw;
   }
+}
+table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
+  content: " ▴▾";
 }/*# sourceMappingURL=style.css.map */
