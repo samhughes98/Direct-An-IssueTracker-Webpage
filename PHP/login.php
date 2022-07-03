@@ -31,7 +31,12 @@ $password_login = $_POST['password_login'];
       header("location: dashboard.php");
       exit();
     } else {
-        echo("Doesnt Exist");
+      echo "<script language='javascript'>";
+      echo 'alert("User Does not Exist");';
+      echo 'window.location.replace("../index.html");';
+      echo "</script>";
+      
+
     }
 }
 ?>

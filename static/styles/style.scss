@@ -101,7 +101,7 @@ ul, li {
     height:100vh !important;
     width:100% !important;
     margin-top:3vh;
-    overflow:scroll; 
+    overflow-y:scroll; 
 
     p{
         font-size: 3em;;
@@ -148,18 +148,26 @@ ul, li {
 
 table{
     width:100%;
-    margin-top:-1.5vh;
+    margin-top:-1.8vh;
+    overflow-y:hide;
+    white-space:nowrap;
+    float:left;
+
+    th {
+        border: solid 1px black;
+        border-top: none;
+    }
     
     th{
         text-align: center;
     }
     
     tr{
-        height:15vh;
+      height:auto;
     }
 
     #priority{
-      width:3vw; 
+      width:7vw; 
     }
     
     #issue_num{
@@ -167,7 +175,7 @@ table{
     }
                       
     #poster{
-width:10vw;
+      width:10vw;
     }
 
 }

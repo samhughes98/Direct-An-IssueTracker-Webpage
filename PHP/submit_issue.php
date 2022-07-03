@@ -85,7 +85,6 @@
                       $username = "root";
                       $password = "";
                       $dbname = "issuesdb";
-                      $ID_rand = rand(1000,9999);
 
                       $conn = new mysqli($servername, $username, $password, $dbname);
                       
@@ -96,7 +95,7 @@
                         $priority = $_POST['priority_selected'];
                        
                         
-                          $sql = "INSERT INTO `issue_records`(`ID`, `poster`, `title`, `issue_desc`, `Priority`) VALUES ('$ID_rand', '$postName', '$title','$Description','$priority')";
+                          $sql = "INSERT INTO `issue_records`(`poster`, `title`, `issue_desc`, `Priority`) VALUES ('$postName', '$title','$Description','$priority')";
                           if ($conn->query($sql) === TRUE) {    } else {echo "Error: " . $sql . "<br>" . $conn->error;}
 
                           $conn->close();

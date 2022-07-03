@@ -21,17 +21,19 @@
         <div class="container-fluid">
             <div class="row">
               <div id="nav__div">
-                <a href="submit_issue.php"><button>Hey</button></a>
                 <div class="col-1">
-                    <a href="index.html">
+                    <a href="../index.html">
                         <img id="bug__logo" src="../static/images/bug_icon.png">
                       </a>
                 </div>
-                <div class="col-7">
+                <div class="col-6">
                   <span><p> Issue Tracking - Developed By Samuel Hughes </p></span>
                 </div>
-                <div class="col-4" style="text-align:right">
+                <div class="col-5" style="text-align:right">
                   <ul>
+                    <li>
+                    <a href="submit_issue.php"><button>Hey</button></a>
+                    </li>
                     <li>
                       <a href="documentation.html">Documentation</a>
                     </li>
@@ -67,23 +69,23 @@
 
                       $result = mysqli_query($con,"SELECT * FROM issue_records");
 
-                      echo "<table id='dash_table' border='1'>
-                      <tr>
-                      <th id='priority'>Priority</th>
-                      <th id='issue_num'>Issue No.</th>
-                      <th id='poster'>Submitted By</th>
-                      <th>Title</th>
-                      <th>Issue Desc</th>
+                      echo "<table id='dash_table'>
+                      <tr style='height:5vh; width:10vw;';>
+                      <th id='priority'>PRIORITY</th>
+                      <th id='issue_num'>No.</th>
+                      <th id='poster'>POSTER</th>
+                      <th>TITLE</th>
+                      <th>ISSUE DESC</th>
                       </tr>";
 
                       while($row = mysqli_fetch_array($result))
                       {
-                      echo "<tr>";
+                      echo "<tr style='vertical-align:top; border-bottom: 1px solid black;'>";
                       echo "<td style='text-align:center'>" . $row['Priority'] . "</td>";
                       echo "<td style='text-align:center'>" . $row['ID'] . "</td>";
                       echo "<td style='padding-left:1vw;'>" . $row['poster'] . "</td>";
                       echo "<td style='padding-left:1vw;'>" . $row['Title'] . "</td>";
-                      echo "<td style='padding-left:1vw; vertical-align:top;'>" . $row['issue_desc'] . "</td>";
+                      echo "<td style='padding-left:1vw; max-width:40vw;  overflow-wrap: break-word;'>" . $row['issue_desc'] . "</td>";
                       echo "</tr>";
                       }
                       echo "</table>";
