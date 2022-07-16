@@ -14,6 +14,30 @@
           crossorigin="anonymous"
         />
     <body>
+    <?php
+      define('RESTRICTED', true);
+      include('login.php');
+      session_start();
+      $test_name = $_SESSION['Fnames'];
+
+      $now = time(); // Checking the time now when home page starts.
+
+      if ($now > $_SESSION['expire']) {
+        session_destroy();
+        header("location: ../index.php");
+      }
+
+      if (defined('RESTRICTED')) {
+        if (!isset($_SESSION['Login_ID'])) {
+          header('Location: ../index.php');
+          exit();
+        }
+      } else {
+        if (isset($_SESSION['Login_ID'])) {
+          header('Location: dashboard.php');
+          exit();
+        }
+      } ?>
       <div class="container-fluid">
         <div class="row">
         <div id="nav__div">
@@ -30,13 +54,13 @@
         <div class="col-5" style="text-align:right">
           <ul>
             <li>
-              <a href="documentation.html">Documentation</a>
+              <a href="../documentation.html">Documentation</a>
             </li>
             <li>
-              <a href="help_page.html">Help</a>
+              <a href="../help_page.html">Help</a>
             </li>
             <li>
-              <a href="contact_page.html">Contact</a>
+              <a href="../contact_page.html">Contact</a>
             </li>
             <li>
   
@@ -47,13 +71,20 @@
       <div class="col-2"></div>
       <div class="col-8">
         <div id="dash_Box">      
-          <h1 style="float:left; margin-left:7vw; margin-top:5vh; width:100%">Your account</h1>
+          <h1 style="float:left; margin-left:7vw; margin-top:5vh; width:100%">Your account</h1> <form method="post"><button id="logoutBtn" class="btn btn-dark" type="submit" name="logOut">Log Out</button><form>
           <h3 style="float:left; margin-left:7vw; margin-top:5vh; width:100%">Name: <br> </h3>
           <h3 style="float:left; margin-left:7vw; margin-top:5vh; width:100%">Email:</h3>
           <a href="#"><h4 style="float:left; margin-left:7vw; margin-top:5vh; width:100%">Change Password</h4></a>
           <a href="#"><h4 style="float:left; margin-left:7vw; margin-top:5vh; width:100%">Privacy Settings</h4></a>
         </div>
       <div class="col-2"></div>
+
+      <?php 
+        if(isset($_POST['logOut'])){
+          session_destroy();
+          header("location: ../index.php");
+        }
+      ?>
    
       </div>
       </div>

@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="../static/styles/style.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
@@ -55,13 +54,13 @@
         <div class="col-4" style="text-align:right">
           <ul>
             <li>
-              <a href="../static/pages/documentation.html">Documentation</a>
+              <a href="../documentation.html">Documentation</a>
             </li>
             <li>
-              <a href="../static/pages/help.html">Help</a>
+              <a href="../help.html">Help</a>
             </li>
             <li>
-              <a href="../static/pages/contact.html">Contact</a>
+              <a href="../contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -106,7 +105,7 @@
                 </div>
                 <button id="issueBtn" type="Submit" name="Submit_issue" class="btn btn-dark" onClick="Issue_form()">Submit Issue</button>
               </form>
-              <div id="txtareaCounter" style="position:absolute;margin-left:50vw;margin-top:81vh;">/300</div>
+              <div id="txtareaCounter" style=" position:absolute;margin-left:50vw;margin-top:30vh;">/300</div>
 
 
               <?php

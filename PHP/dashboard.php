@@ -59,13 +59,13 @@
         <div class="col-5" style="text-align:right">
           <ul>
             <li>
-              <a href="documentation.html">Documentation</a>
+              <a href="../documentation.html">Documentation</a>
             </li>
             <li>
-              <a href="help_page.html">Help</a>
+              <a href="../help.html">Help</a>
             </li>
             <li>
-              <a href="contact_page.html">Contact</a>
+              <a href="../contact.html">Contact</a>
             </li>
             <li>
               <a href="account.php" id="accountLink">
@@ -85,8 +85,8 @@
         <div class="col-10" id="dash_title">
           <div style="text-align:center;margin-top:5vh;">
             <h1 id="title_text">
-              <a href="dashboard.php" style="margin-left:5vw;">Dashboard</a>
-              <a href="submit_issue.php" style="display:inline;float:right;"><button class="btn btn-dark">Submit New Issue</button></a>
+              <a href="dashboard.php" style="margin-left:13vw; font-weight: bold;"><em style="font-size: 1.7em;">Dashboard</em></a>
+              <a href="submit_issue.php" style="display:inline;float:right; margin-top: 1.5vh"><button class="btn btn-dark">Submit New Issue</button></a>
             </h1>
 
 
@@ -107,7 +107,7 @@
             echo "<table id='dash_table' class='sortable'>
                       <tr style='height:5vh; width:10vw;';>
                       <th id='priority'>PRIORITY</th>
-                      <th id='issue_num'>No.</th>
+                      <th id='issue_num'>ID</th>
                       <th id='poster'>POSTER</th>
                       <th>TITLE</th>
                       <th id='issue_desc_title' class='sorttable_nosort'>ISSUE DESC</th>
@@ -132,13 +132,54 @@
               echo "<td style='text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['ID'] . "</td>";
               echo "<td style='text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['poster'] . "</td>";
               echo "<td style='text-align:center; padding-top: 1.5vh; padding-bottom:1vh'>" . $row['Title'] . "</td>";
-              echo "<td style='padding-left:1.5vw; padding-top: 1.5vh; padding-bottom:1vh; max-width:40vw;  overflow-wrap: break-word;'>" . $row['issue_desc'] . "</td>";
-              echo "<td style='padding-top: 1vh; padding-bottom:1vh; margin-right:4vw;max-width:0.5vw;'><button class='btn btn-dark' data-toggle='tooltip' data-placement='top' title='Mark as resolved'  style='width:2vw; margin-left:5.8vw;'><i class='fa-solid fa-circle-check'></i></button><button type='submit' class='btn btn-dark' data-toggle='tooltip' data-placement='top' title='Mark as to be deleted'  style='margin-left:0.5vw;' type='submit' name='Delete' value=" . $row['ID'] . "><i class='fa-solid fa-trash'></i></button>" . "</td>";
+              echo "<td style='padding-left:1.5vw; padding-top: 1.5vh; padding-bottom:1vh; max-width:10vw;  overflow-wrap: break-word;'>" . $row['issue_desc'] . "</td>";
+              echo "<td style='padding-top: 1vh; padding-bottom:1vh; margin-right:4vw;max-width:0.5vw;'>
+                    <button id='deleteBtn' type='submit' class='btn btn-dark' data-toggle='tooltip' data-placement='top' title='Mark as resolved' name='Complete' style='width:2vw; margin-left:5.8vw;' ><i class='fa-solid fa-circle-check'></i></button>
+                    <button type='submit' class='btn btn-dark' data-toggle='tooltip' data-placement='top' title='Mark as to be deleted'  style='margin-left:0.5vw;' type='submit' name='Delete' value=" . $row['ID'] . "><i class='fa-solid fa-trash'></i></button>" . "</td>";
               echo "</tr>";
+              
             }
 
             echo "</table>";
             echo "</form>";
+
+            if (isset($_POST['Complete'])) {
+              $servername = "localhost";
+              $username = "root";
+              $password = "";
+              $dbname = "userdetails";
+
+              $Id_test1 = $_POST['Complete'];
+
+              $conn = new mysqli($servername, $username, $password, $dbname);
+              if (mysqli_connect_errno()) {
+                printf("Connect failed: %s\n", mysqli_connect_error());
+                exit();
+              }
+
+              $sql = "INSERT INTO `completed`(`ID`, `Comment`) VALUES  ('$Id_test1', 'Completed')";
+              if ($conn->query($sql) === TRUE) {
+              } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+              }
+              $conn->close();
+
+              if (!is_resource($conn)) {
+              
+              $conn = new mysqli($servername, $username, $password, "issuesdb");
+
+              $sql = "UPDATE issue_records SET Priority = 'resolved' WHERE ID =  '$Id_test1'";
+              if ($conn->query($sql) === TRUE) {
+                echo "<!--Record updated successfully--!>";
+                $conn->close();
+              } else {
+                echo "<!--Error updating record: " . $conn->error . "--!>";
+                $conn->close();
+              }
+        
+            }
+              
+            }
 
             if (isset($_POST['Delete'])) {
               $servername = "localhost";
@@ -154,7 +195,7 @@
                 exit();
               }
 
-              $sql = "INSERT INTO `todo`(`ID`, `Comment`) VALUES  ('$Id_test1', 'IIII')";
+              $sql = "INSERT INTO `todo`(`ID`, `Comment`) VALUES  ('$Id_test1', 'To Delete')";
               if ($conn->query($sql) === TRUE) {
               } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;

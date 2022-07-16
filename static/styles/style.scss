@@ -19,7 +19,7 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
   font-family: 'gotham';
-  font-size: 1em;
+  font-size: 10px;
   color: white !important;
 }
 
@@ -49,7 +49,10 @@ li {
 }
 
 #bug__logo {
+  height: auto;
+  width: 2.5vw;
   margin-left: 2.5vw;
+  margin-top: -1vh;
 }
 
 #title__text {
@@ -200,13 +203,17 @@ li {
 }
 
 #txtareaCounter {
-  margin-left: 100vw !important;
-  margin-top: 50vh !important;
+  margin-top: 80vh !important;
+  color: white !important;
+  z-index: 999 !important;
 }
 
 #title_text {
   margin-right: 5vw;
 }
+
+
+
 
 @media screen and (min-width: 1200px) {
   #registerForm {
@@ -222,4 +229,61 @@ li {
 table.sortable
   th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
   content: " \25B4\25BE";
+}
+
+#logoutBtn {
+  color:black !important;
+  margin-top:-9vh;
+  margin-left:45vw;
+}
+
+#regBox{
+
+  height: 90vh;
+   #docContent{
+    padding-left:5vw;
+    padding-right:5vw;
+    padding-top:2vh;
+   }
+
+   .docText {
+    margin-top: 5vh;
+   }
+
+   #doclist, li {
+    margin-top: 0vh;
+    margin-left: -3vw;
+   }
+
+   ul, li {
+    display:block;
+    font-size:1.2em;
+    text-decoration: underline solid;
+    list-style: circle !important;
+    padding-top:2vh;
+   }
+
+   ul, p {
+    text-decoration: none;
+   }
+
+}
+
+#helpList {
+  ul, li {
+    display:block;
+    font-size:1.2em;
+    text-decoration: underline solid;
+    list-style: circle !important;
+    padding-top:2vh;
+    margin-left: 1vw;
+   }
+
+   ul, p {
+    text-decoration: none;
+   }
+}
+
+#contact_textarea {
+  height: 14vh;
 }

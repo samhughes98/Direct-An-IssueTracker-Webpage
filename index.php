@@ -37,13 +37,13 @@
         <div class="col-4" style="text-align:right">
           <ul>
             <li>
-              <a href="static/pages/documentation.html">Documentation</a>
+              <a href="documentation.html">Documentation</a>
             </li>
             <li>
-              <a href="static/pages/help.html">Help</a>
+              <a href="help.html">Help</a>
             </li>
             <li>
-              <a href="static/pages/contact.html">Contact</a>
+              <a href="contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -52,7 +52,7 @@
     <div class="row">
       <div class="col-12 justify-content-center">
         <span id="title__text">
-          <h1 id="title__h1">Placeholder</h1>
+          <h1 id="title__h1"><em style="font-weight: bold; font-size: 2em;">Direct</em> <br><br><br>a website for issue tracking</h1>
         </span>
         <form method="post" action="PHP/login.php">
           <div id="login__form">

@@ -13,12 +13,10 @@ body {
 }
 
 * {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
   font-family: "gotham";
-  font-size: 1em;
+  font-size: 10px;
   color: white !important;
 }
 
@@ -43,7 +41,10 @@ li {
 }
 
 #bug__logo {
+  height: auto;
+  width: 2.5vw;
   margin-left: 2.5vw;
+  margin-top: -1vh;
 }
 
 #title__text {
@@ -176,8 +177,9 @@ li {
 }
 
 #txtareaCounter {
-  margin-left: 100vw !important;
-  margin-top: 50vh !important;
+  margin-top: 80vh !important;
+  color: white !important;
+  z-index: 999 !important;
 }
 
 #title_text {
@@ -195,4 +197,54 @@ li {
 }
 table.sortable th:not(.sorttable_sorted):not(.sorttable_sorted_reverse):not(.sorttable_nosort):after {
   content: " ▴▾";
+}
+
+#logoutBtn {
+  color: black !important;
+  margin-top: -9vh;
+  margin-left: 45vw;
+}
+
+#regBox {
+  height: 90vh;
+}
+#regBox #docContent {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 2vh;
+}
+#regBox .docText {
+  margin-top: 5vh;
+}
+#regBox #doclist, #regBox li {
+  margin-top: 0vh;
+  margin-left: -3vw;
+}
+#regBox ul, #regBox li {
+  display: block;
+  font-size: 1.2em;
+  -webkit-text-decoration: underline solid;
+          text-decoration: underline solid;
+  list-style: circle !important;
+  padding-top: 2vh;
+}
+#regBox ul, #regBox p {
+  text-decoration: none;
+}
+
+#helpList ul, #helpList li {
+  display: block;
+  font-size: 1.2em;
+  -webkit-text-decoration: underline solid;
+          text-decoration: underline solid;
+  list-style: circle !important;
+  padding-top: 2vh;
+  margin-left: 1vw;
+}
+#helpList ul, #helpList p {
+  text-decoration: none;
+}
+
+#contact_textarea {
+  height: 14vh;
 }/*# sourceMappingURL=style.css.map */
