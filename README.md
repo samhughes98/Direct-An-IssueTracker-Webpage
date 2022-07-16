@@ -12,3 +12,7 @@ Register/login and submit bugs as you wish. The dashboard presents all current b
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Thank you!
+
+---
+permalink: /index.html
+---
