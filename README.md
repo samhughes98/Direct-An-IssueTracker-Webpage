@@ -2,7 +2,7 @@
 
 Drect is a bug/issue tracker made using HTML/CSS/Bootstrap, JS, PHP and also SQL.
 
-URL To the hosted version: https://samhughes98.github.io/Issue-Tracker-Webpage--Direct/
+URL To the hosted version: https://samhughes98.github.io/bug-tracker-main/
 
 ## Usage
 
